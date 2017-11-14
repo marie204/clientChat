@@ -1,0 +1,53 @@
+body {
+	padding-bottom: 34px;
+}
+
+#onlineUsers {
+	position: fixed;
+	width: 20%;
+	height: 100%;
+	border: 10px solid #000;
+	background-color: white;
+	top: 0;
+	right: 0;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+#onlineUsers ul {
+	padding: 0;
+}
+
+#onlineUsers li {
+	font-size: 15px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	padding: 5px;
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+#onlineUsers li:hover {
+	background-color: #DDD;
+}
+
+#chatBox {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: red;
+	width: 80%;
+	box-sizing: border-box;
+}
+
+#chatBox input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 15px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#chatMessages p {
+	font-size: 15px;
+	font-family: 'Open Sans', sans-serif;
+}
