@@ -112,7 +112,11 @@ function getMessages() {
 
 function showMessages(messages) {
 	for (var i = 0 ; i < messages.length ; i++) {
-		$('#chatMessages').append('<p>'+messages[i].from.username+': '+messages[i].text+'</p>');
+
+		var t = new Date( messages[i].createdAt * 1000 );
+		var formatted = t.getHours()+':'+t.getMinutes()+':'+t.getSeconds();
+
+		$('#chatMessages').append('<p>'+formatted+' '+messages[i].from.username+': '+messages[i].text+'</p>');
 		lastId = messages[i].id
 	}
 	
