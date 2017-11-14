@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	padding-bottom: 34px;
 }
@@ -10,7 +14,6 @@ body {
 	background-color: white;
 	top: 0;
 	right: 0;
-	box-sizing: border-box;
 	overflow: auto;
 }
 
@@ -34,20 +37,15 @@ body {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	background-color: red;
 	width: 80%;
-	box-sizing: border-box;
 }
 
 #chatBox input {
 	width: 100%;
-	box-sizing: border-box;
 	padding: 10px;
-	font-size: 15px;
-	font-family: 'Open Sans', sans-serif;
 }
 
-#chatMessages p {
+#chatMessages p, #chatBox input {
 	font-size: 15px;
 	font-family: 'Open Sans', sans-serif;
 }
