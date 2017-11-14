@@ -67,6 +67,7 @@ function useUser(user) {
 	myUser = user;
 	setCookie('userAuthKey', user.authKey, 365);
 	$('#mask').hide();
+	getMessages();
 }
 
 var userAuthKey;
@@ -85,6 +86,7 @@ function getUser() {
 			myUser = user;
 			myUser.authKey = userAuthKey;
 			$('#mask').hide();
+			getMessages();
 		});
 	} else {
 		createUser();
@@ -92,3 +94,28 @@ function getUser() {
 }
 
 getUser();
+
+var lastId = 0;
+
+function getMessages() {
+	parameters = {
+		url: 'http://messenger.api.niamor.com/getMessages',
+		method: 'post',
+		data: {
+			authKey: myUser.authKey,
+			lastId: lastId
+		}
+	};
+
+	$.ajax(parameters).done(showMessages);
+}
+
+function showMessages(messages) {
+	for (var i = 0 ; i < messages.length ; i++) {
+		$('#chatMessages').append('<p>'+messages[i].from.username+': '+messages[i].text+'</p>');
+		lastId = messages[i].id
+	}
+	setTimeout(getMessages, 1000);
+}
+
+
