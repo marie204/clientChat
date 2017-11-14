@@ -2,9 +2,10 @@
 	box-sizing: border-box;
 }
 
-body {
-	padding-bottom: 34px;
+html, body {
+	height: 100%;
 }
+
 
 #onlineUsers {
 	position: fixed;
@@ -43,6 +44,11 @@ body {
 #chatBox input {
 	width: 100%;
 	padding: 10px;
+}
+
+#chatMessages {
+	padding-right: 20%;
+	padding-bottom: 38px;
 }
 
 #chatMessages p, #chatBox input {

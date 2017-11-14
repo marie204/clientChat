@@ -42,7 +42,7 @@ function showUsers(users) {
 	}
 
 	$('[data-userid]').click(function() {
-		console.log( $(this).attr('data-userid') );
+		sendTo = $(this).attr('data-userid');
 	});
 
 	setTimeout(getUsers, 5000);
@@ -115,7 +115,29 @@ function showMessages(messages) {
 		$('#chatMessages').append('<p>'+messages[i].from.username+': '+messages[i].text+'</p>');
 		lastId = messages[i].id
 	}
+	
+	$(document).scrollTop($(document).height());
+
 	setTimeout(getMessages, 1000);
 }
 
 
+var sendTo = 0;
+
+$('#newMessage').keypress(function(event){
+	
+	if ( event.keyCode == 13 && $('#newMessage').val().length > 2 ) {
+		parameters = {
+			url: 'http://messenger.api.niamor.com/sendMessage',
+			method: 'post',
+			data: {
+				authKey: myUser.authKey,
+				text: $('#newMessage').val(),
+				to: sendTo
+			}
+		};
+		$.ajax(parameters);
+
+		$('#newMessage').val('');
+	}
+});
